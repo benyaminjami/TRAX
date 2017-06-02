@@ -93,6 +93,7 @@ begin
        		
         	s_RX_STOP_BIT :
           	begin
+          		/
             		if (r_Clock_Count < CLKS_PER_BIT-1)
               		begin
                			r_Clock_Count <= r_Clock_Count + 1;

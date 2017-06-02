@@ -9,7 +9,7 @@ z2
 cModel Technology
 dF:/ben/uni/term 4/DSD/prj/DSD_Project_Code
 vbit_String
-Z0 !s110 1496362141
+Z0 !s110 1496362259
 !i10b 1
 !s100 gBnF^LU845CLacIJXPY3_0
 IKGjYnz5;LMLF4DE:;H`hZ0
@@ -23,7 +23,7 @@ Z3 OV;L;10.4b;61
 r1
 !s85 0
 31
-Z4 !s108 1496362141.000000
+Z4 !s108 1496362259.000000
 !s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/2_String.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/2_String.v|
 !i113 1
@@ -71,7 +71,7 @@ R4
 !i113 1
 R5
 vtranceiver_test
-Z6 !s110 1496362142
+R0
 !i10b 1
 !s100 0bE3R:QimXPImX;_d>^K41
 I:=NmbS@<ERJE5OhP63RzJ0
@@ -85,13 +85,13 @@ R3
 r1
 !s85 0
 31
-Z7 !s108 1496362142.000000
+R4
 !s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_test.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_test.v|
 !i113 1
 R5
 vtranceiver_tx
-R6
+R0
 !i10b 1
 !s100 hFhnWeQRN[zhT__N=lJ3b3
 IdO4Hf0HBdZS5QfPWV]YFB2
@@ -105,13 +105,13 @@ R3
 r1
 !s85 0
 31
-R7
+R4
 !s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_tx.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_tx.v|
 !i113 1
 R5
 vtranseiver_rx
-R6
+R0
 !i10b 1
 !s100 ^W7Uo;>nD5RGVe1e4DZ<M0
 Ie`4]<5mLCH^`QeMFToeS82
@@ -125,13 +125,13 @@ R3
 r1
 !s85 0
 31
-R7
+R4
 !s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_rx.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_rx.v|
 !i113 1
 R5
 vUART
-Z8 !s110 1496362143
+R0
 !i10b 1
 !s100 GoiC@>BHE]Gcl2XFiIeIn2
 IO[Mzg8>A7N:Qh949FCPd82
@@ -145,14 +145,34 @@ R3
 r1
 !s85 0
 31
-Z9 !s108 1496362143.000000
+R4
 !s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/UART.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/UART.v|
 !i113 1
 R5
 n@u@a@r@t
+vuart_rx
+R0
+!i10b 1
+!s100 Lg75`L@6aUgOFL86`l^XW0
+I6DTi<GcRfQOA?@1@_M=Pl2
+R1
+R2
+w1496362256
+8C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_rx.v
+FC:/Users/benyamin/Desktop/TRAX/verilog_code/UART_rx.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_rx.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_rx.v|
+!i113 1
+R5
 vuart_test
-R8
+R0
 !i10b 1
 !s100 BQ]=DSU^m`]^0V6m`gTOD2
 I6cDV^FG@FY>jXR=7FeT:F0
@@ -166,13 +186,13 @@ R3
 r1
 !s85 0
 31
-R9
+R4
 !s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/uart_test.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/uart_test.v|
 !i113 1
 R5
 vuart_tx
-R8
+R0
 !i10b 1
 !s100 giPdc<?>DgTMUk72MX[Rd2
 I0;zD3`@N_O7=>]W[JdJn=3
@@ -186,7 +206,7 @@ R3
 r1
 !s85 0
 31
-R9
+R4
 !s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_tx.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_tx.v|
 !i113 1
