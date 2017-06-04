@@ -1,0 +1,71 @@
+C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_rx.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_rx.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module uart_rx
+
+Top level modules:
+	uart_rx
+
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_tx.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_tx.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module tranceiver_tx
+
+Top level modules:
+	tranceiver_tx
+
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_test.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_test.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module tranceiver_test
+
+Top level modules:
+	tranceiver_test
+
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_tx.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_tx.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module uart_tx
+
+Top level modules:
+	uart_tx
+
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/uart_test.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/uart_test.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module uart_test
+
+Top level modules:
+	uart_test
+
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module tranceiver
+
+Top level modules:
+	tranceiver
+
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/UART.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/UART.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module UART
+
+Top level modules:
+	UART
+
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_rx.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_rx.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module transeiver_rx
+
+Top level modules:
+	transeiver_rx
+
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/String_2.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/String_2.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module String_bit
+
+Top level modules:
+	String_bit
+
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/2_String.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/2_String.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module bit_String
+
+Top level modules:
+	bit_String
+
+} {} {}}
