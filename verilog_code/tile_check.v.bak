@@ -1,5 +1,5 @@
 module tile_check(
-		output	[6:0]	tile_type,
+		output	[5:0]	tile_type,
 		output		end_signal,
 		input		start_signal,
 		input	[2:0]	up_tile,

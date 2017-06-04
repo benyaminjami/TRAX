@@ -5,7 +5,8 @@ module tile_check(
 		input	[2:0]	up_tile,
 		input	[2:0]	down_tile,
 		input	[2:0]	right_tile,
-		input	[2:0]	left_tile
+		input	[2:0]	left_tile,
+		input		clock
 		);
 
 endmodule
