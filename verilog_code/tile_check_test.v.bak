@@ -9,7 +9,6 @@ tile_check t1(tile_type,endsignal, , up_tile, down_tile, right_tile, left_tile, 
 
 initial
 begin
-endsignal = 0;
 	up_tile = 3'b001;	left_tile = 3'b000;	right_tile = 3'b000;	down_tile = 3'b000;
 #15	up_tile = 3'b001;	left_tile = 3'b000;	right_tile = 3'b000;	down_tile = 3'b010;
 #15    	up_tile = 3'b000;	left_tile = 3'b011;	right_tile = 3'b110;	down_tile = 3'b000;	

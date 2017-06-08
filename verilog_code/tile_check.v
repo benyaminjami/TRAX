@@ -9,12 +9,12 @@ module tile_check(
 		input			clock
 		);
 
-reg white_input = 0, black_input = 0;	//number of white or black inputs into a tile
-reg empty_tile = 0 , left_white = 2, up_white = 2, right_white = 2, down_white = 2;
+reg [2:0] white_input = 0, black_input = 0;	//number of white or black inputs into a tile
+reg [2:0] empty_tile = 0 , left_white = 2, up_white = 2, right_white = 2, down_white = 2;
 //tiles are slash_down , slash_up , plus_vrt , plus_hz , baskslash_up , backsalsh_down , these are based on white color
-parameter slash_down = 1, slash_up = 2, plus_vrt = 3, plus_hz = 4, backslash_up = 5, backslash_down = 6;
+parameter [2:0] slash_down = 1, slash_up = 2, plus_vrt = 3, plus_hz = 4, backslash_up = 5, backslash_down = 6;
 parameter empty = 0;
-initial
+always@(posedge start_signal)
 begin
 	// chek the white inputs
 	if(left_tile == slash_down || left_tile == plus_hz || left_tile == backslash_up)
