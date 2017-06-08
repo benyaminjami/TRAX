@@ -9,13 +9,13 @@ z2
 cModel Technology
 dF:/ben/uni/term 4/DSD/prj/DSD_Project_Code
 vbit_String
-Z0 !s110 1496871242
+Z0 !s110 1496535161
 !i10b 1
-!s100 9Ah:6S>hg@Gf@GHdSJ0>k3
-ImNMD3ePiZaJgXX_BjonFi0
+!s100 gBnF^LU845CLacIJXPY3_0
+IKGjYnz5;LMLF4DE:;H`hZ0
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dC:/Users/benyamin/Desktop/TRAX/verilog_code
-w1496864688
+w1493998696
 8C:/Users/benyamin/Desktop/TRAX/verilog_code/2_String.v
 FC:/Users/benyamin/Desktop/TRAX/verilog_code/2_String.v
 L0 1
@@ -23,60 +23,20 @@ Z3 OV;L;10.4b;61
 r1
 !s85 0
 31
-!s108 1496871241.000000
+!s108 1496535160.000000
 !s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/2_String.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/2_String.v|
 !i113 1
 Z4 o-work work
 nbit_@string
-vboard_shift
-R0
-!i10b 1
-!s100 z@fngB^gh6YTM3M9TfGG;2
-IF;<RTnP`;M7lWjiLmomRf3
-R1
-R2
-w1496616634
-8C:/Users/benyamin/Desktop/TRAX/verilog_code/board_shift.v
-FC:/Users/benyamin/Desktop/TRAX/verilog_code/board_shift.v
-L0 1
-R3
-r1
-!s85 0
-31
-Z5 !s108 1496871242.000000
-!s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/board_shift.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/board_shift.v|
-!i113 1
-R4
-vconstants
-R0
-!i10b 1
-!s100 6LLfQ9LUmF7GNL3P02?>k1
-IkXok0XUMALJ=4Yek]MD4A1
-R1
-R2
-w1496870434
-8C:/Users/benyamin/Desktop/TRAX/verilog_code/constants.v
-FC:/Users/benyamin/Desktop/TRAX/verilog_code/constants.v
-L0 1
-R3
-r1
-!s85 0
-31
-R5
-!s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/constants.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/constants.v|
-!i113 1
-R4
 vString_bit
 R0
 !i10b 1
-!s100 DSnP^m;=WR8<GFF9DeZ2A3
-I3zk9IK?DDWnC<KH;NJMoQ3
+!s100 <zXaB`LiDCkSVOgBVQmPJ1
+IbG:M6M54i1m9Ck[<B2>]l0
 R1
 R2
-w1496864726
+w1493974368
 8C:/Users/benyamin/Desktop/TRAX/verilog_code/String_2.v
 FC:/Users/benyamin/Desktop/TRAX/verilog_code/String_2.v
 L0 1
@@ -84,14 +44,14 @@ R3
 r1
 !s85 0
 31
-R5
+Z5 !s108 1496535161.000000
 !s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/String_2.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/String_2.v|
 !i113 1
 R4
 n@string_bit
 vtile_check
-!s110 1496535161
+R0
 !i10b 1
 !s100 ]5`YHfE5=WTHYSO2>H6^G3
 IDz9kOR2i1^:Ak_]>5a=0P2
@@ -105,7 +65,7 @@ R3
 r1
 !s85 0
 31
-!s108 1496535161.000000
+R5
 !s107 C:/Users/benyamin/Desktop/TRAX/verilog_code/tile_check.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/tile_check.v|
 !i113 1
@@ -153,11 +113,11 @@ R4
 vtranceiver_tx
 R0
 !i10b 1
-!s100 JG0XXj?DPF7XJ6<Bihj<A2
-I7ZjE9_cG[B;bWgLc:i1MZ2
+!s100 hFhnWeQRN[zhT__N=lJ3b3
+IdO4Hf0HBdZS5QfPWV]YFB2
 R1
 R2
-w1496864666
+w1493979982
 8C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_tx.v
 FC:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_tx.v
 L0 1
@@ -173,11 +133,11 @@ R4
 vtranseiver_rx
 R0
 !i10b 1
-!s100 cXZMzl]P`i_I6Q`f0eYSb1
-I`J;5K0`C;^XQ4kR]eDQPf0
+!s100 ^W7Uo;>nD5RGVe1e4DZ<M0
+Ie`4]<5mLCH^`QeMFToeS82
 R1
 R2
-w1496864366
+w1493970522
 8C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_rx.v
 FC:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_rx.v
 L0 1
@@ -190,27 +150,6 @@ R5
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_rx.v|
 !i113 1
 R4
-vTRAX
-!s110 1496871243
-!i10b 1
-!s100 5`N=mCH^ALY1d>TRmWGAC1
-IWBU8LYO^NndIM@S7z?TSP1
-R1
-R2
-w1496871240
-8C:\Users\benyamin\Desktop\TRAX\verilog_code\TRAX.v
-FC:\Users\benyamin\Desktop\TRAX\verilog_code\TRAX.v
-L0 1
-R3
-r1
-!s85 0
-31
-R5
-!s107 C:\Users\benyamin\Desktop\TRAX\verilog_code\TRAX.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\benyamin\Desktop\TRAX\verilog_code\TRAX.v|
-!i113 1
-R4
-n@t@r@a@x
 vUART
 R0
 !i10b 1

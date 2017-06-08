@@ -11,61 +11,56 @@ module tile_check(
 
 reg white_input, black_input;	//number of white or black inputs into a tile
 reg empty_tile = 0 , left_white, up_white, right_white, down_white;
-<<<<<<< HEAD
-//tiles are T_slash_down , T_slash_up , T_plus_vrt , T_plus_hz , baskT_slash_up , backsalsh_down , these are based on white color
-
-=======
 //tiles are slash_down , slash_up , plus_vrt , plus_hz , baskslash_up , backsalsh_down , these are based on white color
 parameter slash_down = 1, slash_up = 2, plus_vrt = 3, plus_hz = 4, backslash_up = 5, backslash_down = 6;
 parameter empty = 0;
->>>>>>> origin/master
 initial
 begin
 	// chek the white inputs
-	if(left_tile == T_slash_down || left_tile == T_plus_hz || left_tile == T_backslash_up)
+	if(left_tile == slash_down || left_tile == plus_hz || left_tile == backslash_up)
 	begin
 		white_input = white_input + 1;
 		left_white = 1;
 	end
 
-	if(up_tile == T_slash_down || up_tile == T_plus_vrt || up_tile == T_backslash_down)
+	if(up_tile == slash_down || up_tile == plus_vrt || up_tile == backslash_down)
 	begin
 		white_input = white_input + 1;
 		up_white = 1;
 	end
 
-	if(right_tile == T_slash_up || right_tile == T_plus_hz || right_tile == T_backslash_down)
+	if(right_tile == slash_up || right_tile == plus_hz || right_tile == backslash_down)
 	begin
 		white_input = white_input + 1;
 		right_white = 1;
 	end
 
-	if(down_tile == T_slash_up || down_tile == T_plus_vrt || down_tile == T_backslash_up)
+	if(down_tile == slash_up || down_tile == plus_vrt || down_tile == backslash_up)
 	begin
 		white_input = white_input + 1;
 		down_white = 1;
 	end
 
 	// chek the blask inputs
-	if(left_tile == T_slash_up || left_tile == T_plus_vrt || left_tile == T_backslash_down)
+	if(left_tile == slash_up || left_tile == plus_vrt || left_tile == backslash_down)
 	begin
 		black_input = black_input + 1;
 		left_white = 0;
 	end
 
-	if(up_tile == T_slash_down || up_tile == T_plus_vrt || up_tile == T_backslash_down)
+	if(up_tile == slash_down || up_tile == plus_vrt || up_tile == backslash_down)
 	begin
 		black_input = black_input + 1;
 		up_white = 0;
 	end
 
-	if(right_tile == T_slash_down || right_tile == T_plus_vrt || right_tile == T_backslash_up)
+	if(right_tile == slash_down || right_tile == plus_vrt || right_tile == backslash_up)
 	begin
 		black_input = black_input + 1;
 		right_white = 0;
 	end
 
-	if(down_tile == T_slash_down || down_tile == T_plus_hz || down_tile == T_backslash_down)
+	if(down_tile == slash_down || down_tile == plus_hz || down_tile == backslash_down)
 	begin
 		black_input = black_input + 1;
 		down_white = 0;
@@ -78,31 +73,19 @@ begin
 		begin
 			if(up_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_up] = 1;
-=======
 				tile_type[slash_up - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 
 			else if(right_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_plus_hz] = 1;
-=======
 				tile_type[plus_hz - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 			
 			else if (down_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_backslash_down] = 1;
-=======
 				tile_type[backslash_down - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -111,21 +94,13 @@ begin
 		begin
 			if(right_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_backslash_up] = 1;
-=======
 				tile_type[backslash_up - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 			
 			if(down_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_plus_vrt] = 1;
-=======
 				tile_type[plus_vrt - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -134,11 +109,7 @@ begin
 		begin
 			if(down_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_down] = 1;
-=======
 				tile_type[slash_down - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -152,31 +123,19 @@ begin
 		begin
 			if(up_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_up] = 1;
-=======
 				tile_type[slash_up - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 
 			else if(right_white == 0)
 			begin
-<<<<<<< HEAD
-				tile_type[T_plus_hz] = 1;
-=======
 				tile_type[plus_hz - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 			
 			else if (down_white == 0)
 			begin
-<<<<<<< HEAD
-				tile_type[T_backslash_down] = 1;
-=======
 				tile_type[backslash_down - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -185,21 +144,13 @@ begin
 		begin
 			if(right_white == 0)
 			begin
-<<<<<<< HEAD
-				tile_type[T_backslash_up] = 1;
-=======
 				tile_type[backslash_up - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 			
 			if(down_white == 0)
 			begin
-<<<<<<< HEAD
-				tile_type[T_plus_vrt] = 1;
-=======
 				tile_type[plus_vrt - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -208,11 +159,7 @@ begin
 		begin
 			if(down_white == 0)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_down] = 1;
-=======
 				tile_type[slash_down - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -223,29 +170,17 @@ begin
 	begin
 		if(white_input == 1)
 		begin
-<<<<<<< HEAD
-			tile_type[T_slash_up] = 1;
-			tile_type[T_plus_hz] = 1;
-			tile_type[T_backslash_down] = 1;
-=======
 			tile_type[slash_up - 1] = 1;
 			tile_type[plus_hz - 1] = 1;
 			tile_type[backslash_down - 1] = 1;
->>>>>>> origin/master
 			endsignal = 1;
 		end
 
 		else if(black_input == 1)
 		begin
-<<<<<<< HEAD
-			tile_type[T_slash_down] = 1;
-			tile_type[T_plus_vrt] = 1;
-			tile_type[T_backslash_up] = 1;
-=======
 			tile_type[slash_down - 1] = 1;
 			tile_type[plus_vrt - 1] = 1;
 			tile_type[backslash_up - 1] = 1;
->>>>>>> origin/master
 			endsignal = 1;
 		end
 	end
@@ -255,29 +190,17 @@ begin
 	begin
 		if(white_input == 1)
 		begin
-<<<<<<< HEAD
-			tile_type[T_slash_up] = 1;
-			tile_type[T_plus_vrt] = 1;
-			tile_type[T_backslash_up] = 1;
-=======
 			tile_type[slash_up - 1] = 1;
 			tile_type[plus_vrt - 1] = 1;
 			tile_type[backslash_up - 1] = 1;
->>>>>>> origin/master
 			endsignal = 1;
 		end
 
 		else if(black_input == 1)
 		begin
-<<<<<<< HEAD
-			tile_type[T_slash_down] = 1;
-			tile_type[T_plus_hz] = 1;
-			tile_type[T_backslash_down] = 1;
-=======
 			tile_type[slash_down - 1] = 1;
 			tile_type[plus_hz - 1] = 1;
 			tile_type[backslash_down - 1] = 1;
->>>>>>> origin/master
 			endsignal = 1;
 		end
 	end
@@ -287,29 +210,17 @@ begin
 	begin
 		if(white_input == 1)
 		begin
-<<<<<<< HEAD
-			tile_type[T_slash_down] = 1;
-			tile_type[T_plus_hz] = 1;
-			tile_type[T_backslash_up] = 1;
-=======
 			tile_type[slash_down - 1] = 1;
 			tile_type[plus_hz - 1] = 1;
 			tile_type[backslash_up - 1] = 1;
->>>>>>> origin/master
 			endsignal = 1;
 		end
 
 		else if(black_input == 1)
 		begin
-<<<<<<< HEAD
-			tile_type[T_slash_up] = 1;
-			tile_type[T_plus_vrt] = 1;
-			tile_type[T_backslash_down] = 1;
-=======
 			tile_type[slash_up - 1] = 1;
 			tile_type[plus_vrt - 1] = 1;
 			tile_type[backslash_down - 1] = 1;
->>>>>>> origin/master
 			endsignal = 1;
 		end
 	end
@@ -319,29 +230,17 @@ begin
 	begin
 		if(white_input == 1)
 		begin
-<<<<<<< HEAD
-			tile_type[T_slash_down] = 1;
-			tile_type[T_plus_vrt] = 1;
-			tile_type[T_backslash_down] = 1;
-=======
 			tile_type[slash_down - 1] = 1;
 			tile_type[plus_vrt - 1] = 1;
 			tile_type[backslash_down - 1] = 1;
->>>>>>> origin/master
 			endsignal = 1;
 		end
 
 		else if(black_input == 1)
 		begin
-<<<<<<< HEAD
-			tile_type[T_slash_up] = 1;
-			tile_type[T_plus_hz] = 1;
-			tile_type[T_backslash_up] = 1;
-=======
 			tile_type[slash_up - 1] = 1;
 			tile_type[plus_hz - 1] = 1;
 			tile_type[backslash_up - 1] = 1;
->>>>>>> origin/master
 			endsignal = 1;
 		end
 	end
@@ -353,13 +252,8 @@ begin
 		begin
 			if(up_white == 0)
 			begin
-<<<<<<< HEAD
-				tile_type[T_plus_hz] = 1;
-				tile_type[T_backslash_down] = 1;
-=======
 				tile_type[plus_hz - 1] = 1;
 				tile_type[backslash_down - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -367,13 +261,8 @@ begin
 		begin
 			if(up_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_plus_vrt] = 1;
-				tile_type[T_backslash_up] = 1;
-=======
 				tile_type[plus_vrt - 1] = 1;
 				tile_type[backslash_up - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -386,13 +275,8 @@ begin
 		begin
 			if(right_white == 0)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_up] = 1;
-				tile_type[T_backslash_down] = 1;
-=======
 				tile_type[slash_up - 1] = 1;
 				tile_type[backslash_down - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -400,13 +284,8 @@ begin
 		begin
 			if(right_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_down] = 1;
-				tile_type[T_backslash_up] = 1;
-=======
 				tile_type[slash_down - 1] = 1;
 				tile_type[backslash_up - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -419,13 +298,8 @@ begin
 		begin
 			if(down_white == 0)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_up] = 1;
-				tile_type[T_plus_hz] = 1;
-=======
 				tile_type[slash_up - 1] = 1;
 				tile_type[plus_hz - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -433,13 +307,8 @@ begin
 		begin
 			if(down_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_down] = 1;
-				tile_type[T_plus_vrt] = 1;
-=======
 				tile_type[slash_down - 1] = 1;
 				tile_type[plus_vrt - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -452,13 +321,8 @@ begin
 		begin
 			if(right_white == 0)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_up] = 1;
-				tile_type[T_plus_vrt] = 1;
-=======
 				tile_type[slash_up - 1] = 1;
 				tile_type[plus_vrt - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -466,13 +330,8 @@ begin
 		begin
 			if(right_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_down] = 1;
-				tile_type[T_plus_hz] = 1;
-=======
 				tile_type[slash_down - 1] = 1;
 				tile_type[plus_hz - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -485,13 +344,8 @@ begin
 		begin
 			if(down_white == 0)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_up] = 1;
-				tile_type[T_backslash_up] = 1;
-=======
 				tile_type[slash_up - 1] = 1;
 				tile_type[backslash_up - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -499,13 +353,8 @@ begin
 		begin
 			if(down_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_slash_down] = 1;
-				tile_type[T_backslash_down] = 1;
-=======
 				tile_type[slash_down - 1] = 1;
 				tile_type[backslash_down - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -518,13 +367,8 @@ begin
 		begin
 			if(down_white == 0)
 			begin
-<<<<<<< HEAD
-				tile_type[T_plus_hz] = 1;
-				tile_type[T_backslash_up] = 1;
-=======
 				tile_type[plus_hz - 1] = 1;
 				tile_type[backslash_up - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
@@ -532,13 +376,8 @@ begin
 		begin
 			if(down_white == 1)
 			begin
-<<<<<<< HEAD
-				tile_type[T_plus_vrt] = 1;
-				tile_type[T_backslash_down] = 1;
-=======
 				tile_type[plus_vrt - 1] = 1;
 				tile_type[backslash_down - 1] = 1;
->>>>>>> origin/master
 				endsignal = 1;
 			end
 		end
