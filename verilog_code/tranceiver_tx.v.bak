@@ -25,8 +25,7 @@ reg		r_send;
 integer 	index = 0;
 wire	[55:0]	string_out;
 bit_String inst(.move_in(r_move_in),
-		.start_signal(active),
-		.end_signal(end_signal),
+		.active(active),
 		.tx_out(string_out));
 
 assign tx_byte = r_tx_byte;
@@ -53,14 +52,9 @@ begin
 	
 	s_GET_STRING :
 	begin
-		if(end_signal == 0)
-			r_SM_Main = s_GET_STRING;
-		else
-		begin
-			r_tx_out = string_out;
-			active = 0;
-			r_SM_Main = s_SEND_DATA;
-		end
+		r_tx_out = string_out;
+		active = 0; 
+		r_SM_Main = s_SEND_DATA;
 	end
 	
 	s_SEND_DATA:

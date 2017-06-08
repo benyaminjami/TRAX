@@ -4,6 +4,6 @@ module find_moves(
 		input			start_signal,
 		input	[29999:0]	board,
 		input			clock
-		}
+		)
 
 endmodule

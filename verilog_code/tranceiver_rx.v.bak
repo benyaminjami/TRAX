@@ -80,7 +80,7 @@ begin
 
 	s_STOP_RECEIVE :
 	begin
-		if(end_signal == 0)
+		if(end_signal == 1)
 			r_SM_Main = s_STOP_RECEIVE;
 		else
 		begin

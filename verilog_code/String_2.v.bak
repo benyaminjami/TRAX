@@ -2,19 +2,17 @@ module String_bit(
 	input [55:0] 	rx_input,
 	input [2:0]	number,
 	input 		start_signal,
-	output		end_signal,
+	output	reg	end_signal,
 	output[21:0]	rx_out
 	);
 reg [55:0]	r_rx_input;
 reg [21:0]	r_rx_out = 0;
 integer		temp;
 integer i = 0;
-reg		r_end_signal = 1;
-assign end_signal = r_end_signal;
 assign rx_out = r_rx_out;
 always @(posedge start_signal)
 begin
-	r_end_signal = 0;
+	end_signal = 0;
 	temp = number;
 	r_rx_input = rx_input;
 	r_rx_out[9:0] = r_rx_input[7:0] - "@";
@@ -42,6 +40,6 @@ begin
 		r_rx_out[21:20] = 1;
 	if(r_rx_input[((temp - 2) * 8)+:8] == "+")
 		r_rx_out[21:20] = 2;
-	r_end_signal = 1;
+	end_signal = 1;
 end
 endmodule

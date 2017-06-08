@@ -10,7 +10,7 @@ reg [55:0]	r_tx_out;
 reg [5:0] 	temp;
 reg	r_end_signal = 1;
 assign end_signal = r_end_signal;
-always @(posedge start_signal)
+always @(posedge active)
 begin
 	r_end_signal = 0;
 	r_move_in = move_in;

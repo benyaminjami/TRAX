@@ -1,0 +1,9 @@
+module constants;
+//parameter T_empty = 3b'xxx;
+parameter T_slash_down = 3'b001; 
+parameter T_slash_up = 3b'010; 
+parameter T_plus_vrt = 3b'011; 
+parameter T_plus_hz = 3b'100;
+parameter T_baskslash_up = 3b'101;
+parameter T_backsalsh_down = 3b'110;
+endmodule
