@@ -9,8 +9,8 @@ module tile_check(
 		input			clock
 		);
 
-reg white_input, black_input;	//number of white or black inputs into a tile
-reg empty_tile = 0 , left_white, up_white, right_white, down_white;
+reg white_input = 0, black_input = 0;	//number of white or black inputs into a tile
+reg empty_tile = 0 , left_white = 2, up_white = 2, right_white = 2, down_white = 2;
 //tiles are slash_down , slash_up , plus_vrt , plus_hz , baskslash_up , backsalsh_down , these are based on white color
 parameter slash_down = 1, slash_up = 2, plus_vrt = 3, plus_hz = 4, backslash_up = 5, backslash_down = 6;
 parameter empty = 0;
@@ -166,7 +166,7 @@ begin
 	end	//end of checking mandatory moves for black
 
 	//check if left tile is the only one set before(in the 4 tile up, down, left, right)
-	if(left_tile != empty && up_tile == empty && right_tile == empty && down_tile == empty && endsignal == 0)
+	if(left_tile != empty && up_tile == empty && right_tile == empty && down_tile == empty && endsignal != 1)
 	begin
 		if(white_input == 1)
 		begin
@@ -186,7 +186,7 @@ begin
 	end
 
 	//check if up tile is the only one set before(in the 4 tile up, down, left, right)
-	if(left_tile == empty && up_tile != empty && right_tile == empty && down_tile == empty && endsignal == 0)
+	if(left_tile == empty && up_tile != empty && right_tile == empty && down_tile == empty && endsignal != 1)
 	begin
 		if(white_input == 1)
 		begin
@@ -206,7 +206,7 @@ begin
 	end
 
 	//check if right tile is the only one set before(in the 4 tile up, down, left, right)
-	if(left_tile == empty && up_tile == empty && right_tile != empty && down_tile == empty && endsignal == 0)
+	if(left_tile == empty && up_tile == empty && right_tile != empty && down_tile == empty && endsignal != 1)
 	begin
 		if(white_input == 1)
 		begin
@@ -226,7 +226,7 @@ begin
 	end
 
 	//check if down tile is the only one set before(in the 4 tile up, down, left, right)
-	if(left_tile == empty && up_tile == empty && right_tile == empty && down_tile != empty && endsignal == 0)
+	if(left_tile == empty && up_tile == empty && right_tile == empty && down_tile != empty && endsignal != 1)
 	begin
 		if(white_input == 1)
 		begin
@@ -246,7 +246,7 @@ begin
 	end
 
 	//if the left and the up tile is set before
-	if(left_tile != empty && up_tile != empty && right_tile == empty && down_tile == empty && endsignal == 0)
+	if(left_tile != empty && up_tile != empty && right_tile == empty && down_tile == empty && endsignal != 1)
 	begin
 		if(left_white == 1)
 		begin
@@ -269,7 +269,7 @@ begin
 	end
 
 	//if the left and the right tile is set before
-	if(left_tile != empty && up_tile == empty && right_tile != empty && down_tile == empty && endsignal == 0)
+	if(left_tile != empty && up_tile == empty && right_tile != empty && down_tile == empty && endsignal != 1)
 	begin
 		if(left_white == 1)
 		begin
@@ -292,7 +292,7 @@ begin
 	end
 
 	//if the left and the down tile is set before
-	if(left_tile != empty && up_tile == empty && right_tile == empty && down_tile != empty && endsignal == 0)
+	if(left_tile != empty && up_tile == empty && right_tile == empty && down_tile != empty && endsignal != 1)
 	begin
 		if(left_white == 1)
 		begin
@@ -315,7 +315,7 @@ begin
 	end
 
 	//if the up and the right tile is set before
-	if(left_tile == empty && up_tile != empty && right_tile != empty && down_tile == empty && endsignal == 0)
+	if(left_tile == empty && up_tile != empty && right_tile != empty && down_tile == empty && endsignal != 1)
 	begin
 		if(up_white == 1)
 		begin
@@ -338,7 +338,7 @@ begin
 	end
 
 	//if the up and the down tile is set before
-	if(left_tile == empty && up_tile != empty && right_tile == empty && down_tile != empty && endsignal == 0)
+	if(left_tile == empty && up_tile != empty && right_tile == empty && down_tile != empty && endsignal != 1)
 	begin
 		if(up_white == 1)
 		begin
@@ -361,7 +361,7 @@ begin
 	end
 
 	//if the right and the down tile is set before
-	if(left_tile == empty && up_tile == empty && right_tile != empty && down_tile != empty && endsignal == 0)
+	if(left_tile == empty && up_tile == empty && right_tile != empty && down_tile != empty && endsignal != 1)
 	begin
 		if(right_white == 1)
 		begin
