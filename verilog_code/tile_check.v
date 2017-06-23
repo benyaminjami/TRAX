@@ -16,6 +16,9 @@ parameter [2:0] slash_down = 1, slash_up = 2, plus_vrt = 3, plus_hz = 4, backsla
 parameter empty = 0;
 always@(posedge start_signal)
 begin
+	white_input = 0; black_input = 0;	//number of white or black inputs into a tile
+	empty_tile = 0 ; left_white = 2; up_white = 2; right_white = 2; down_white = 2;
+	tile_type = 0;
 	// chek the white inputs
 	if(left_tile == slash_down || left_tile == plus_hz || left_tile == backslash_up)
 	begin
@@ -48,7 +51,7 @@ begin
 		left_white = 0;
 	end
 
-	if(up_tile == slash_down || up_tile == plus_vrt || up_tile == backslash_down)
+	if(up_tile == slash_up || up_tile == plus_hz || up_tile == backslash_up)
 	begin
 		black_input = black_input + 1;
 		up_white = 0;
@@ -166,7 +169,7 @@ begin
 	end	//end of checking mandatory moves for black
 
 	//check if left tile is the only one set before(in the 4 tile up, down, left, right)
-	if(left_tile != empty && up_tile == empty && right_tile == empty && down_tile == empty && endsignal != 1)
+	if(left_tile != empty && up_tile == empty && right_tile == empty && down_tile == empty)
 	begin
 		if(white_input == 1)
 		begin
@@ -186,7 +189,7 @@ begin
 	end
 
 	//check if up tile is the only one set before(in the 4 tile up, down, left, right)
-	if(left_tile == empty && up_tile != empty && right_tile == empty && down_tile == empty && endsignal != 1)
+	if(left_tile == empty && up_tile != empty && right_tile == empty && down_tile == empty )
 	begin
 		if(white_input == 1)
 		begin
@@ -206,7 +209,7 @@ begin
 	end
 
 	//check if right tile is the only one set before(in the 4 tile up, down, left, right)
-	if(left_tile == empty && up_tile == empty && right_tile != empty && down_tile == empty && endsignal != 1)
+	if(left_tile == empty && up_tile == empty && right_tile != empty && down_tile == empty)
 	begin
 		if(white_input == 1)
 		begin
@@ -226,7 +229,7 @@ begin
 	end
 
 	//check if down tile is the only one set before(in the 4 tile up, down, left, right)
-	if(left_tile == empty && up_tile == empty && right_tile == empty && down_tile != empty && endsignal != 1)
+	if(left_tile == empty && up_tile == empty && right_tile == empty && down_tile != empty)
 	begin
 		if(white_input == 1)
 		begin
@@ -246,7 +249,7 @@ begin
 	end
 
 	//if the left and the up tile is set before
-	if(left_tile != empty && up_tile != empty && right_tile == empty && down_tile == empty && endsignal != 1)
+	if(left_tile != empty && up_tile != empty && right_tile == empty && down_tile == empty)
 	begin
 		if(left_white == 1)
 		begin
@@ -269,7 +272,7 @@ begin
 	end
 
 	//if the left and the right tile is set before
-	if(left_tile != empty && up_tile == empty && right_tile != empty && down_tile == empty && endsignal != 1)
+	if(left_tile != empty && up_tile == empty && right_tile != empty && down_tile == empty)
 	begin
 		if(left_white == 1)
 		begin
@@ -292,7 +295,7 @@ begin
 	end
 
 	//if the left and the down tile is set before
-	if(left_tile != empty && up_tile == empty && right_tile == empty && down_tile != empty && endsignal != 1)
+	if(left_tile != empty && up_tile == empty && right_tile == empty && down_tile != empty)
 	begin
 		if(left_white == 1)
 		begin
@@ -315,7 +318,7 @@ begin
 	end
 
 	//if the up and the right tile is set before
-	if(left_tile == empty && up_tile != empty && right_tile != empty && down_tile == empty && endsignal != 1)
+	if(left_tile == empty && up_tile != empty && right_tile != empty && down_tile == empty)
 	begin
 		if(up_white == 1)
 		begin
@@ -338,7 +341,7 @@ begin
 	end
 
 	//if the up and the down tile is set before
-	if(left_tile == empty && up_tile != empty && right_tile == empty && down_tile != empty && endsignal != 1)
+	if(left_tile == empty && up_tile != empty && right_tile == empty && down_tile != empty)
 	begin
 		if(up_white == 1)
 		begin
@@ -361,7 +364,7 @@ begin
 	end
 
 	//if the right and the down tile is set before
-	if(left_tile == empty && up_tile == empty && right_tile != empty && down_tile != empty && endsignal != 1)
+	if(left_tile == empty && up_tile == empty && right_tile != empty && down_tile != empty)
 	begin
 		if(right_white == 1)
 		begin
