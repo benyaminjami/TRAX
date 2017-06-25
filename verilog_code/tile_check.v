@@ -16,6 +16,7 @@ parameter [2:0] slash_down = 1, slash_up = 2, plus_vrt = 3, plus_hz = 4, backsla
 parameter empty = 0;
 always@(posedge start_signal)
 begin
+	endsignal = 0;
 	white_input = 0; black_input = 0;	//number of white or black inputs into a tile
 	empty_tile = 0 ; left_white = 2; up_white = 2; right_white = 2; down_white = 2;
 	tile_type = 0;
