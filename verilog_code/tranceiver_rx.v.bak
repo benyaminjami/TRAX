@@ -31,7 +31,7 @@ wire end_signal;
 String_bit inst(
 	.number(number),
 	.rx_input(r_input_data),
-	.strat_signal(r_active),
+	.start_signal(r_active),
 	.end_signal(end_signal),
 	.rx_out(move_out)
 	);
@@ -80,7 +80,7 @@ begin
 
 	s_STOP_RECEIVE :
 	begin
-		if(end_signal == 1)
+		if(end_signal == 0)
 			r_SM_Main = s_STOP_RECEIVE;
 		else
 		begin

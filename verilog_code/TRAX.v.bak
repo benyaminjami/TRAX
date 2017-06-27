@@ -37,7 +37,7 @@ reg			r_R_Shift = 0;
 reg			r_D_Shift = 0;
 reg [21:0]	r_set_tile;
 reg			r_mandatory_check = 0;
-reg	[21:0] 	r_possible_moves;
+reg	[21:0] 	r_possible_moves[100:0];
 integer		possible_moves_cnt = 0;
 reg [2:0]	board[b_width:0][b_height:0];
 

@@ -19,6 +19,8 @@ parameter	s_MANDATORY_Tile = 4'b0111;
 parameter	s_FIND_Moves = 4'b1000;
 parameter	s_SEND_Move = 4'b1001;
 
+reg [4:0]	r_SM_Main = 0;
+
 reg			set_color = 0;
 reg			first_move = 0;
 reg			r_color = 0;
@@ -40,6 +42,7 @@ reg			r_mandatory_check = 0;
 reg	[21:0] 	r_possible_moves[100:0];
 integer		possible_moves_cnt = 0;
 reg [2:0]	board[b_width:0][b_height:0];
+reg 		r_sending_tile = 0;
 
 integer		x_board = 2,y_board = 2;
 integer		i,j;
@@ -58,6 +61,7 @@ tranceiver inst_tranceiver(
 	.end_receive(end_receive),
 	.color(color)
 	);
+
 wire [5:0] tile_type;
 tile_check inst_tile_check(
 		.tile_type(tile_type),
@@ -65,8 +69,8 @@ tile_check inst_tile_check(
 		.start_signal(r_tile_check_start),
 		.up_tile(r_up_tile),
 		.down_tile(r_down_tile),
-		.right_tile(r_right_type),
-		.left_tile(r_left_type),
+		.right_tile(r_right_tile),
+		.left_tile(r_left_tile),
 		.clock()
 		);
 
@@ -75,15 +79,19 @@ begin
 	case(r_SM_Main)
 	s_IDLE :
 	begin
+		r_sending_tile = 0;
 		r_start_transmit = 0;
 		if(end_receive == 1)
 		begin
-			
 			if(set_color == 0)
 			begin
 				r_color = color;
 				set_color = 1;
-				r_SM_Main = s_SET_Board;
+				if(color == 0)
+					r_SM_Main = s_SET_Board;
+				else begin
+					r_SM_Main = s_BFIRST_Move;
+				end
 				i = 0;
 				j = 0;
 			end
@@ -109,7 +117,7 @@ begin
 			if(r_color == 0)
 				r_SM_Main = s_WFIRST_Move;
 			else begin
-				r_SM_Main = s_BFIRST_Move;
+				r_SM_Main = s_FIND_Moves;
 			end
 		end
 	end
@@ -161,28 +169,6 @@ begin
 		else
 			r_right_tile = board[ r_set_tile[19:10] - 1] [r_set_tile[9:0]];
 		r_tile_check_start = 1;
-	end
-
-	s_WFIRST_Move:
-	begin
-		r_send_move = 3'b010;
-		r_start_transmit = 1;
-		r_SM_Main = s_IDLE;
-	end
-
-	s_BFIRST_Move:
-	begin
-		if(end_receive == 1)
-		begin
-			if(received_move[21:20] == 2)
-				board[1][1] = 3'b011;
-			else begin
-				board[1][1] = 3'b010;
-			end	
-		end	
-		r_SM_Main = s_FIND_Moves;
-		i = 1;
-		j = 0;
 	end
 
 	s_SHIFT_Right:
@@ -286,6 +272,11 @@ begin
 					i = 1;
 					j = 0;
 					r_SM_Main = s_FIND_Moves;
+					if(r_sending_tile == 1)
+					begin
+						r_SM_Main = s_IDLE;
+						r_start_transmit = 1;
+					end
 				end
 			end
 		end
@@ -310,6 +301,29 @@ begin
 		end
 		else
 			r_tile_check_start = 1;
+	end
+
+	s_WFIRST_Move:
+	begin
+		r_send_move = 0;
+		board[1][1] = 3'b010;
+		r_start_transmit = 1;
+		r_SM_Main = s_IDLE;
+	end
+
+	s_BFIRST_Move:
+	begin
+		if(end_receive == 1)
+		begin
+			if(received_move[21:20] == 2)
+				board[1][1] = 3'b011;
+			else begin
+				board[1][1] = 3'b010;
+			end	
+		end	
+		r_SM_Main = s_SET_Board;
+		i = 1;
+		j = 0;
 	end
 
 	s_FIND_Moves:
@@ -396,13 +410,16 @@ begin
 	s_SEND_Move:
 	begin
 		r_send_move = r_possible_moves[0];
-		r_start_transmit = 1;
 		possible_moves_cnt = 0;
-		r_SM_Main = s_IDLE;
+		r_SM_Main = s_SET_Tile;
+		r_set_tile = r_possible_moves[0];
+		r_sending_tile = 1;
 	end
 
 	default
+	begin
 		r_SM_Main = s_IDLE;
+	end
 
 	endcase
 end

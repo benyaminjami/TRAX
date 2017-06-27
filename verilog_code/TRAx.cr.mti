@@ -5,19 +5,7 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	uart_rx
 
-} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/TRAX.v {0 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/TRAX.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module TRAX
-** Error: (vlog-13069) C:/Users/benyamin/Desktop/TRAX/verilog_code/TRAX.v(96): near "(": syntax error, unexpected '('.
-
-** Error: C:/Users/benyamin/Desktop/TRAX/verilog_code/TRAX.v(116): (vlog-2730) Undefined variable: 's_SHIFT_Right'.
-
-** Error: C:/Users/benyamin/Desktop/TRAX/verilog_code/TRAX.v(138): (vlog-2730) Undefined variable: 's_SHIFT_Down'.
-
-** Error: C:/Users/benyamin/Desktop/TRAX/verilog_code/TRAX.v(147): (vlog-2730) Undefined variable: 's_MANDATORY_Tile'.
-
-
-} {4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_tx.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_tx.v
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_tx.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/UART_tx.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module uart_tx
 
@@ -30,9 +18,6 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 
 Top level modules:
 	String_bit
-
-} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/functions.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/functions.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 
 } {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_test.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_test.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -55,16 +40,6 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	transeiver_rx
 
-} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/constants.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/constants.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-
-} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/board_shift.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/board_shift.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module board_shift
-
-Top level modules:
-	board_shift
-
 } {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_tx.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_tx.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module tranceiver_tx
@@ -78,13 +53,6 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 
 Top level modules:
 	bit_String
-
-} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/find_moves.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/find_moves.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module find_moves
-
-Top level modules:
-	find_moves
 
 } {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/tile_check_test.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/tile_check_test.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
