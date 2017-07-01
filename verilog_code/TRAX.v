@@ -4,8 +4,8 @@ module TRAX(
 	input clock 
 	);
 
-parameter	b_height = 8'b01100100;
-parameter	b_width = 8'b01100100;
+parameter	b_height = 8'b011001;
+parameter	b_width = 8'b011001;
 
 
 parameter	s_IDLE = 4'b0000;
@@ -18,13 +18,13 @@ parameter 	s_SHIFT_Right = 4'b0110;
 parameter	s_MANDATORY_Tile = 4'b0111;
 parameter	s_FIND_Moves = 4'b1000;
 parameter	s_SEND_Move = 4'b1001;
+parameter	s_SAVE_Move = 4'b1010;
 
 reg [4:0]	r_SM_Main = 0;
 
 reg			set_color = 0;
 reg			first_move = 0;
 reg			r_color = 0;
-reg [3:0]	r_SM_Main = 0;
 reg [21:0] 	r_send_move;
 reg			r_start_transmit;
 reg			r_reset;
@@ -41,7 +41,7 @@ reg [21:0]	r_set_tile;
 reg			r_mandatory_check = 0;
 reg	[21:0] 	r_possible_moves[100:0];
 integer		possible_moves_cnt = 0;
-reg [2:0]	board[b_width:0][b_height:0];
+reg [2:0]	board[b_width - 1:0][b_height - 1:0];
 reg 		r_sending_tile = 0;
 
 integer		x_board = 2,y_board = 2;
@@ -79,6 +79,7 @@ begin
 	case(r_SM_Main)
 	s_IDLE :
 	begin
+		r_tile_check_start = 0;
 		r_sending_tile = 0;
 		r_start_transmit = 0;
 		if(end_receive == 1)
@@ -117,6 +118,13 @@ begin
 			if(r_color == 0)
 				r_SM_Main = s_WFIRST_Move;
 			else begin
+				if(received_move[21:20] == 2)
+					board[1][1] = 3'b011;
+				else begin
+					board[1][1] = 3'b010;
+				end	
+				i = 0;
+				j = 1;
 				r_SM_Main = s_FIND_Moves;
 			end
 		end
@@ -147,14 +155,14 @@ begin
 
 			if(r_set_tile[9:0] == 0)
 				r_R_Shift = 1;
-			if(r_set_tile[9:0] == x_board)
+			if(r_set_tile[9:0] == x_board || r_set_tile[9:0] == 0)
 				x_board = x_board + 1;
 			if(r_set_tile[19:10] == 0)
 				r_D_Shift = 1;
-			if(r_set_tile[19:10] == y_board)
+			if(r_set_tile[19:10] == y_board || r_set_tile[19:10] == 0)
 				y_board = y_board + 1;
 			r_SM_Main = s_SHIFT_Right;
-			i = b_width - 1;
+			i = x_board + 1;
 			j = 0;
 			r_tile_check_start = 0;
 		end
@@ -181,15 +189,15 @@ begin
 			begin
 				board[j][0] = 0;
 				j = j + 1;
-				i = b_width - 1;
+				i = x_board + 1;
 			end
-			if(j == b_height)
+			if(j == y_board + 1)
 			begin
 				r_R_Shift = 0;
 			end
 		end
 		else begin
-			j = b_height - 1;
+			j = y_board + 1;
 			i = 0;
 			r_SM_Main = s_SHIFT_Down;
 		end
@@ -199,15 +207,15 @@ begin
 	begin
 		if(r_D_Shift == 1)
 		begin
-			board[j][i] = board[j][i - 1];
-			i = i - 1;
-			if(i == 0)
+			board[j][i] = board[j - 1][i];
+			j = j - 1;
+			if(j == 0)
 			begin
-				board[j][0] = 0;
-				j = j + 1;
-				i = b_height - 1;
+				board[0][i] = 0;
+				i = i + 1;
+				j = y_board + 1;
 			end
-			if(j == b_width)
+			if(i == x_board + 1)
 			begin
 				r_D_Shift = 0;
 			end
@@ -255,12 +263,12 @@ begin
 			end			
 			r_tile_check_start = 0;
 			j = j + 1;
-			if(j == b_width)
+			if(j == x_board + 1)
 			begin
 				j = 0;
 				i = i + 1;
 			end
-			if(i == b_height)
+			if(i == y_board + 1)
 			begin
 				if(r_mandatory_check == 1)
 				begin
@@ -269,7 +277,7 @@ begin
 					r_mandatory_check = 0;
 				end
 				else begin
-					i = 1;
+					i = 0;
 					j = 0;
 					r_SM_Main = s_FIND_Moves;
 					if(r_sending_tile == 1)
@@ -293,7 +301,7 @@ begin
 		if(board[i][j] != 0)
 		begin
 			j = j + 1;
-			if(j == b_width)
+			if(j == x_board + 1)
 			begin
 				j = 0;
 				i = i + 1;
@@ -315,96 +323,101 @@ begin
 	begin
 		if(end_receive == 1)
 		begin
-			if(received_move[21:20] == 2)
-				board[1][1] = 3'b011;
-			else begin
-				board[1][1] = 3'b010;
-			end	
+			r_SM_Main = s_SET_Board;
+			i = 0;
+			j = 0;
 		end	
-		r_SM_Main = s_SET_Board;
-		i = 1;
-		j = 0;
+		
 	end
 
 	s_FIND_Moves:
 	begin
-		if(tile_check_end == 1 && r_tile_check_start == 1)
+			r_down_tile = board[i + 1] [j];
+			r_right_tile = board[i] [j + 1];
+			if(j == 0)
+				r_left_tile = 0;		
+			else
+				r_left_tile = board[i] [j - 1];
+			if(i == 0)
+				r_up_tile = 0;
+			else
+				r_up_tile = board[i - 1] [j];
+			if((board[i][j] != 0) || (r_up_tile == 0 && r_down_tile == 0 && r_right_tile == 0 && r_left_tile == 0))
+			begin
+				j = j + 1;
+				if(j == x_board + 1)
+				begin
+					j = 0;
+					i = i + 1;
+				end
+				if(i == y_board + 1)
+				begin
+					r_SM_Main = s_SEND_Move;
+				end
+			end
+			else if((board[i][j] == 0) && (r_up_tile != 0 || r_down_tile != 0 || r_right_tile != 0 || r_left_tile != 0))begin
+				r_tile_check_start = 1;
+				r_SM_Main = s_SAVE_Move;
+			end
+	end
+
+	s_SAVE_Move:
+	begin
+		if(tile_type[0] == 1)
 		begin
-			if(tile_type[0] == 1)
-			begin
-				r_possible_moves[possible_moves_cnt][9:0] = j;
-				r_possible_moves[possible_moves_cnt][19:10] = i;
-				r_possible_moves[possible_moves_cnt][21:20] = 0;
-				possible_moves_cnt = possible_moves_cnt + 1;
-			end
-			if(tile_type[1] == 1)
-			begin
-				r_possible_moves[possible_moves_cnt][9:0] = j;
-				r_possible_moves[possible_moves_cnt][19:10] = i;
-				r_possible_moves[possible_moves_cnt][21:20] = 0;
-				possible_moves_cnt = possible_moves_cnt + 1;
-			end
-			if(tile_type[2] == 1)
-			begin
-				r_possible_moves[possible_moves_cnt][9:0] = j;
-				r_possible_moves[possible_moves_cnt][19:10] = i;
-				r_possible_moves[possible_moves_cnt][21:20] = 1;
-				possible_moves_cnt = possible_moves_cnt + 1;
-			end
-			if(tile_type[3] == 1)
-			begin
-				r_possible_moves[possible_moves_cnt][9:0] = j;
-				r_possible_moves[possible_moves_cnt][19:10] = i;
-				r_possible_moves[possible_moves_cnt][21:20] = 1;
-				possible_moves_cnt = possible_moves_cnt + 1;
-			end
-			if(tile_type[4] == 1)
-			begin
-				r_possible_moves[possible_moves_cnt][9:0] = j;
-				r_possible_moves[possible_moves_cnt][19:10] = i;
-				r_possible_moves[possible_moves_cnt][21:20] = 2;
-				possible_moves_cnt = possible_moves_cnt + 1;
-			end
-			if(tile_type[5] == 1)
-			begin
-				r_possible_moves[possible_moves_cnt][9:0] = j;
-				r_possible_moves[possible_moves_cnt][19:10] = i;
-				r_possible_moves[possible_moves_cnt][21:20] = 2;
-				possible_moves_cnt = possible_moves_cnt + 1;
-			end			
-			r_tile_check_start = 0;
-			j = j + 1;
-			if(j == b_width)
-			begin
-				j = 0;
-				i = i + 1;
-			end
-			if(i == b_height)
-			begin
-				r_SM_Main = s_SEND_Move;
-			end
+			r_possible_moves[possible_moves_cnt][9:0] = j;
+			r_possible_moves[possible_moves_cnt][19:10] = i;
+			r_possible_moves[possible_moves_cnt][21:20] = 0;
+			possible_moves_cnt = possible_moves_cnt + 1;
 		end
-		r_down_tile = board[i + 1] [j];
-		r_right_tile = board[i] [j + 1];
-		if(j == 0)
-			r_left_tile = 0;		
-		else
-			r_left_tile = board[i] [j - 1];
-		if(i == 0)
-			r_up_tile = 0;
-		else
-			r_right_tile = board[i - 1] [j];
-		if(board[i][j] != 0)
+		if(tile_type[1] == 1)
 		begin
-			j = j + 1;
-			if(j == b_width)
-			begin
-				j = 0;
-				i = i + 1;
-			end
+			r_possible_moves[possible_moves_cnt][9:0] = j;
+			r_possible_moves[possible_moves_cnt][19:10] = i;
+			r_possible_moves[possible_moves_cnt][21:20] = 0;
+			possible_moves_cnt = possible_moves_cnt + 1;
 		end
-		else
-			r_tile_check_start = 1;
+		if(tile_type[2] == 1)
+		begin
+			r_possible_moves[possible_moves_cnt][9:0] = j;
+			r_possible_moves[possible_moves_cnt][19:10] = i;
+			r_possible_moves[possible_moves_cnt][21:20] = 1;
+			possible_moves_cnt = possible_moves_cnt + 1;
+		end
+		if(tile_type[3] == 1)
+		begin
+			r_possible_moves[possible_moves_cnt][9:0] = j;
+			r_possible_moves[possible_moves_cnt][19:10] = i;
+			r_possible_moves[possible_moves_cnt][21:20] = 1;
+			possible_moves_cnt = possible_moves_cnt + 1;
+		end
+		if(tile_type[4] == 1)
+		begin
+			r_possible_moves[possible_moves_cnt][9:0] = j;
+			r_possible_moves[possible_moves_cnt][19:10] = i;
+			r_possible_moves[possible_moves_cnt][21:20] = 2;
+			possible_moves_cnt = possible_moves_cnt + 1;
+		end
+		if(tile_type[5] == 1)
+		begin
+			r_possible_moves[possible_moves_cnt][9:0] = j;
+			r_possible_moves[possible_moves_cnt][19:10] = i;
+			r_possible_moves[possible_moves_cnt][21:20] = 2;
+			possible_moves_cnt = possible_moves_cnt + 1;
+		end			
+		r_tile_check_start = 0;
+		j = j + 1;
+		r_SM_Main = s_FIND_Moves;
+		if(j == x_board + 1)
+		begin
+			j = 0;
+			i = i + 1;
+		end
+		if(i == y_board + 1)
+		begin
+			r_SM_Main = s_SEND_Move;
+		end
+		
 	end
 
 	s_SEND_Move:

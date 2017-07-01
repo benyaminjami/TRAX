@@ -12,6 +12,13 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	uart_tx
 
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/test.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/test.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module test
+
+Top level modules:
+	test
+
 } {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/String_2.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/String_2.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module String_bit
@@ -40,6 +47,13 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	transeiver_rx
 
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/TRAX_test.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/TRAX_test.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module TRAX_test
+
+Top level modules:
+	TRAX_test
+
 } {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_tx.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver_tx.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module tranceiver_tx
@@ -61,19 +75,19 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	tile_check_test
 
-} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/uart_test.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/uart_test.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module uart_test
-
-Top level modules:
-	uart_test
-
 } {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/tranceiver.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module tranceiver
 
 Top level modules:
 	tranceiver
+
+} {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/uart_test.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/uart_test.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module uart_test
+
+Top level modules:
+	uart_test
 
 } {} {}} C:/Users/benyamin/Desktop/TRAX/verilog_code/UART.v {1 {vlog -work work -stats=none C:/Users/benyamin/Desktop/TRAX/verilog_code/UART.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015

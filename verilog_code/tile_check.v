@@ -386,5 +386,7 @@ begin
 			end
 		end
 	end
+	if(up_tile == 0 && down_tile == 0 && right_tile == 0 && left_tile == 0)
+		tile_type = 0;
 end
 endmodule

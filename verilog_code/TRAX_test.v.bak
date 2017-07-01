@@ -33,7 +33,7 @@ begin
 	if(i == 2)
 	UART1_data = @(posedge UART1_done)"\n";
 end
-	#1000 UART1_send = 0;
+	#10 UART1_send = 0;
 end
 initial
 begin
@@ -48,6 +48,6 @@ begin
 	UART2_data = @(posedge UART2_done)"\n";
 
 end
-	#1000 UART2_send = 0;
+	#10 UART2_send = 0;
 end
 endmodule

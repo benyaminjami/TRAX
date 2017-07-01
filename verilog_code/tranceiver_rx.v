@@ -74,7 +74,6 @@ begin
 			r_color = 0;
 		else 
 			r_color = 1;
-		r_end_receive = 1;
 		r_SM_Main = s_END;
 	end
 
@@ -84,13 +83,14 @@ begin
 			r_SM_Main = s_STOP_RECEIVE;
 		else
 		begin
-			r_end_receive = 1;
 			r_SM_Main = s_END; 
 		end
 	end
 	
 	s_END :
 	begin
+		index = 0;
+		r_end_receive = 1;
 		number = 0;
 		r_active = 0;
 		r_SM_Main = s_IDLE;
